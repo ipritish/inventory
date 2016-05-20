@@ -1,0 +1,26 @@
+{
+  "name": "inventory",
+  "version": "1.0.0",
+  "description": "list of items",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ipritish/inventory.git"
+  },
+  "author": "pritish",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ipritish/inventory/issues"
+  },
+  "homepage": "https://github.com/ipritish/inventory#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "karma": "^0.13.22",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-jasmine": "^1.0.2",
+    "karma-phantomjs-launcher": "^1.0.0"
+  }
+}

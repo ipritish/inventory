@@ -1,0 +1,21 @@
+{
+  "name": "inventory",
+  "description": "list of items",
+  "main": "index.js",
+  "authors": [
+    "pritish"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/ipritish/inventory",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular": "^1.5.5"
+  }
+}
