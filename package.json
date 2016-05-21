@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/ipritish/inventory#readme",
   "devDependencies": {
+    "express": "^4.13.4",
     "gulp": "^3.9.1",
     "karma": "^0.13.22",
     "karma-chrome-launcher": "^1.0.1",
