@@ -1,14 +1,28 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 
-<html>
+<html ng-app="inventory">
 
 <head>
+
     <title>My First HTML Page</title>
+	<!-- inject:css -->
+    <!-- endinject -->
 </head>
 
-<body>
+<body ng-controller="mainController as mainCtrl">
 
-    My text goes here.
+    {{mainCtrl.bodyMsg}}
+	
+	<!-- bower:js -->
+	<script src="bower_components/angular/angular.js"></script>
+	<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+	<script src="bower_components/jquery/dist/jquery.js"></script>
+	<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+	<!-- endinject -->
+	
+	<!-- inject:js -->
+    <script src="app/app.js"></script>
+    <!-- endinject -->
 
 </body>
 

@@ -4,7 +4,8 @@
   "description": "list of items",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "gulp": "gulp",
+    "karma": "karma start"
   },
   "repository": {
     "type": "git",
@@ -17,9 +18,19 @@
   },
   "homepage": "https://github.com/ipritish/inventory#readme",
   "devDependencies": {
+    "del": "^2.2.0",
     "express": "^4.13.4",
     "gulp": "^3.9.1",
+    "gulp-angular-templatecache": "^1.8.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-download": "0.0.1",
+    "gulp-inject": "^4.1.0",
+    "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-strip-comments": "^2.4.3",
+    "gulp-uglify": "^1.5.3",
+    "gulp-watch": "^4.3.6",
     "karma": "^0.13.22",
     "karma-chrome-launcher": "^1.0.1",
     "karma-jasmine": "^1.0.2",
