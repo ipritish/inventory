@@ -1,10 +1,12 @@
 //test app.js
-angular.module('inventory', [])
+angular.module('inventory', ['ui.router'])
 .config(['$locationProvider',function ($locationProvider){
-	$locationProvider.html5Mode(true);
-
+	$locationProvider.html5Mode({
+	  enabled: true,
+	  requireBase: false
+	});
 }])
-.controller('mainController',["$scope", function(){
+.controller('mainController',["$scope", function($scope){
 	var mainController = this;
 	mainController.bodyMsg = "test";
 }]);
