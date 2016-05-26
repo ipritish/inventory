@@ -6,7 +6,20 @@ angular.module('inventory', ['ui.router'])
 	  requireBase: false
 	});
 }])
-.controller('mainController',["$scope", function($scope){
+.controller('mainController',["$scope", "$http", function($scope,$http){
 	var mainController = this;
-	mainController.bodyMsg = "test";
+	//mainController.bodyMsg = "test";
+	$http.get("/test")
+    .then(function(response) {
+        mainController.bodyMsg = response.data;
+    });
+	
+	mainController.clickMe = function(){
+		$http.get("/resulttest")
+		.then(function(response) {
+			console.log(response);
+			mainController.bodyMsg = response.data;
+		});
+		console.log("it's here");
+	};
 }]);

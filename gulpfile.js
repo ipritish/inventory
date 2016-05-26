@@ -102,7 +102,7 @@ gulp.task('serve', [ 'deploy' ], function() {
 	browserSync.init(null, {
 		proxy: "http://localhost:3000",
         files: [srcs.reload],
-        port: 3000
+        port: 7000
 	});
     //gulp.watch(srcs.scss, [ 'sass' ]);
     //gulp.watch(srcs.templates, [ 'html-templates' ]);

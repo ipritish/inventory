@@ -7,11 +7,6 @@
     <title>My First HTML Page</title>
 	<!-- inject:css -->
     <!-- endinject -->
-</head>
-
-<body ng-controller="mainController as mainCtrl">
-
-    {{mainCtrl.bodyMsg}}
 	
 	<!-- bower:js -->
 	<script src="bower_components/angular/angular.js"></script>
@@ -20,9 +15,19 @@
 	<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 	<!-- endinject -->
 	
+</head>
+
+<body ng-controller="mainController as mainCtrl">
+
+
+	
 	<!-- inject:js -->
     <script src="app/app.js"></script>
     <!-- endinject -->
+	
+	<span ng-bind="mainCtrl.bodyMsg"></span>
+	<button type="button" ng-click="mainCtrl.clickMe()">Click Me!</button>
+	
 
 </body>
 
