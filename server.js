@@ -18,7 +18,6 @@ app.get('/resulttest', function(req, res) {
 
 app.use(express.static(__dirname + '/src'));
 
-server.listen(3000, 'localhost');
-server.on('listening', function() {
-  console.log('Express server started on port %s at %s', server.address().port, server.address().address);
+app.listen(3000, function() {
+  console.log('Express server started on port');
 });
