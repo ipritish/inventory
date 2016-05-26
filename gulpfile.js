@@ -13,6 +13,8 @@ var download = require('gulp-download'),
     sourcemaps = require('gulp-sourcemaps'),
     strip = require('gulp-strip-comments'),
     uglify = require('gulp-uglify'),
+	browserSync = require('browser-sync').create(),
+	nodemon = require('gulp-nodemon'),	
     watch = require('gulp-watch');
 	
 var srcs = {
@@ -83,11 +85,27 @@ gulp.task('dist', [ 'index' ], function() {
 });
 
 gulp.task('deploy', [ 'dist' ], function() {
-    console.log("deploying TODO: ");
+
+    var started = false;
+	return nodemon({
+		script: 'server.js'
+	}).on('start', function () {
+		// to avoid nodemon being started multiple times
+		// thanks @matthisk
+		if (!started) {
+			cb();
+			started = true; 
+		} 
+	});
 });
 
 gulp.task('serve', [ 'deploy' ], function() {
 
+	browserSync.init(null, {
+		proxy: "http://localhost:3000",
+        files: [srcs.reload],
+        port: 7000
+	});
     //gulp.watch(srcs.scss, [ 'sass' ]);
     //gulp.watch(srcs.templates, [ 'html-templates' ]);
 	

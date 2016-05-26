@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/ipritish/inventory#readme",
   "devDependencies": {
+    "browser-sync": "^2.12.8",
     "del": "^2.2.0",
     "express": "^4.13.4",
     "gulp": "^3.9.1",
@@ -25,6 +26,7 @@
     "gulp-concat": "^2.6.0",
     "gulp-download": "0.0.1",
     "gulp-inject": "^4.1.0",
+    "gulp-nodemon": "^2.0.7",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.1",
     "gulp-sourcemaps": "^1.6.0",
