@@ -18,6 +18,24 @@ app.get('/resulttest', function(req, res) {
 
 app.use(express.static(__dirname + '/src'));
 
+app.get('/home', function(req, res) {
+
+  res.sendFile('src/index.html' , { root : __dirname});
+
+});
+
+app.get('/shows', function(req, res) {
+
+  res.send('resulttest');
+
+});
+
+app.get('/anime', function(req, res) {
+
+  res.send('resulttest');
+
+});
+
 app.listen(3000, function() {
   console.log('Express server started on port');
 });

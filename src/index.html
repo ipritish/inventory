@@ -5,6 +5,9 @@
 <head>
 
     <title>My First HTML Page</title>
+	
+	<!-- bower:css -->
+	<!-- endinject -->
 	<!-- inject:css -->
     <!-- endinject -->
 	
@@ -23,12 +26,14 @@
 	
 	<!-- inject:js -->
     <script src="app/app.js"></script>
+    <script src=".tmp/templates.js"></script>
     <!-- endinject -->
 	
 	<span ng-bind="mainCtrl.bodyMsg"></span>
 	<button type="button" ng-click="mainCtrl.clickMe()">Click Me!</button>
 	
-
+	<div ui-view></div>
+	
 </body>
 
 </html>

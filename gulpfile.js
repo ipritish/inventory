@@ -37,7 +37,7 @@ gulp.task('html-templates', [ 'sass'] , function() {
     return gulp.src(srcs.templates)
         .pipe(ngCache({
             filename: '.tmp/templates.js',
-            module: 'accounts'
+            module: 'inventory'
         }))
         .pipe(gulp.dest('src', { mode: 0644 }));
 });
@@ -74,11 +74,11 @@ gulp.task('dist', [ 'index' ], function() {
     var src = [ 'src/app/app.js', 'src/**/.js' ];
     return gulp.src(src)
 		.pipe(sourcemaps.init())
-        .pipe(concat('accounts.js'))
+        .pipe(concat('inventory.js'))
         .pipe(gulp.dest('dist', { mode: 0644 }))
         .pipe(strip())
         .pipe(uglify())
-        .pipe(rename('accounts.min.js'))
+        .pipe(rename('inventory.min.js'))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('dist', { mode: 0644 }));
     
