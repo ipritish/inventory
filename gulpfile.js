@@ -90,8 +90,6 @@ gulp.task('deploy', [ 'dist' ], function() {
 	return nodemon({
 		script: 'server.js'
 	}).on('start', function () {
-		// to avoid nodemon being started multiple times
-		// thanks @matthisk
 		if (!started) {
 			cb();
 			started = true; 
@@ -104,7 +102,7 @@ gulp.task('serve', [ 'deploy' ], function() {
 	browserSync.init(null, {
 		proxy: "http://localhost:3000",
         files: [srcs.reload],
-        port: 7000
+        port: 3000
 	});
     //gulp.watch(srcs.scss, [ 'sass' ]);
     //gulp.watch(srcs.templates, [ 'html-templates' ]);
