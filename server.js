@@ -26,13 +26,13 @@ app.get('/home', function(req, res) {
 
 app.get('/shows', function(req, res) {
 
-  res.send('resulttest');
+  res.sendFile('src/index.html' , { root : __dirname});
 
 });
 
 app.get('/anime', function(req, res) {
 
-  res.send('resulttest');
+  res.sendFile('src/index.html' , { root : __dirname});
 
 });
 

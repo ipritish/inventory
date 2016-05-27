@@ -13,7 +13,7 @@ angular.module('inventory', ['ui.router'])
       templateUrl: "app/components/home/home.html"
     })
     .state('/shows', {
-      url: "/home/shows",
+      url: "/shows",
       templateUrl: "app/components/shows/shows.html"
     })
     .state('/anime', {
