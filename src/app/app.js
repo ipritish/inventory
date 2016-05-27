@@ -12,11 +12,11 @@ angular.module('inventory', ['ui.router'])
       url: "/home",
       templateUrl: "app/components/home/home.html"
     })
-    .state('/shows', {
+    .state('shows', {
       url: "/shows",
       templateUrl: "app/components/shows/shows.html"
     })
-    .state('/anime', {
+    .state('anime', {
       url: "/anime",
       templateUrl: "app/components/anime/anime.html"
     });
