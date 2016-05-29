@@ -37,6 +37,7 @@
     "karma-chrome-launcher": "^1.0.1",
     "karma-jasmine": "^1.0.2",
     "karma-phantomjs-launcher": "^1.0.0",
-    "main-bower-files": "^2.13.1"
+    "main-bower-files": "^2.13.1",
+    "mysql": "^2.10.2"
   }
 }
