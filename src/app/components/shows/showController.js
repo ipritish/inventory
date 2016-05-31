@@ -1,5 +1,5 @@
 angular.module('inventory')
-.controller('showContoller', function($scope) {
+.controller('showContoller', [ "$scope", 'paginationFilter', function($scope,paginationFilter) {
 	
 	var showController = this;
  
@@ -26,9 +26,13 @@ angular.module('inventory')
 		$scope.numberOfPages = function() {
 				return Math.ceil($scope.datalists.length / $scope.pageSize);
 		};
+		
+		var test = [1,2,2,6];
+		var logData = paginationFilter(test,1);
+		console.log(logData);
          
 	}
-});
+}]);
 
 angular.module('inventory').filter('pagination', function()
 {

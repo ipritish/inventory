@@ -1,22 +1,26 @@
 <div ng-controller="showContoller" ng-init="showData()">
-	<ul>
-		<li style="font-weight:bold;"><span>Name</span><span>Age</span><span>Designation</span></li>
-		<li ng-repeat="datalist in datalists | pagination: curPage * pageSize | limitTo: pageSize">
-			<div><span>{{ datalist.name }} </span><span>{{ datalist.age }}</span><span>{{ datalist.designation }}</span></div> 
-		</li>
-	</ul> 
+	<table class="table">
+		<tr>
+			<th style="width:33%; text-align:center;"><span>Name</span></td>
+			<th style="width:33%; text-align:center;"><span>Age</span></td>
+			<th style="width:33%; text-align:center;"><span>Designation</span></td>
+		</tr>
+		<tr ng-repeat="datalist in datalists | pagination: curPage * pageSize | limitTo: pageSize">
+			<td style="width:33%; text-align:center;"><span>{{ datalist.name }} </span></td>
+			<td style="width:33%; text-align:center;"><span>{{ datalist.age }}</span></td>
+			<td style="width:33%; text-align:center;"><span>{{ datalist.designation }}</span></td> 
+		</tr>
+	</table> 
         
-    <div ng-show="datalists.length">
-		<ul>
-		 <li>
-		  <button type="button" class="btn btn-primary" ng-disabled="curPage === 0" ng-click="curPage=curPage-1"> &lt; PREV</button>
-		 </li>
-		 <li>
-		 <span>Page {{curPage + 1}} of {{ numberOfPages() }}</span>
-		 </li>
-		 <li>
-		 <button type="button" class="btn btn-primary" ng-disabled="curPage >= datalists.length/pageSize - 1" ng-click="curPage = curPage+1">NEXT &gt;</button>
-		 </li>
-		</ul>
+    <div class="row" ng-show="datalists.length">
+		<div class="col-xs-4 text-center">
+		</div>
+		<div class="col-xs-4 text-center">
+			<button type="button" class="btn btn-primary" ng-disabled="curPage === 0" ng-click="curPage=curPage-1"> &lt; PREV</button>
+			<span>Page {{curPage + 1}} of {{ numberOfPages() }}</span>
+			<button type="button" class="btn btn-primary" ng-disabled="curPage >= datalists.length/pageSize - 1" ng-click="curPage = curPage+1">NEXT &gt;</button>
+		</div>
+		<div class="col-xs-4 text-center">
+		</div>
 	</div>
 </div>
