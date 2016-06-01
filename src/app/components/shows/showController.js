@@ -26,6 +26,19 @@ angular.module('inventory')
 		$scope.numberOfPages = function() {
 				return Math.ceil($scope.datalists.length / $scope.pageSize);
 		};
+		$scope.isFirstPage = function(){
+			return $scope.curPage === 0;
+		};
+		$scope.isLastPage = function() {
+			return $scope.curPage >= $scope.datalists.length/$scope.pageSize - 1;
+		};
+		$scope.reduceCurrentPage = function(){
+			$scope.curPage = $scope.curPage - 1;
+		};
+		$scope.increaseCurrentPage = function(){
+			$scope.curPage = $scope.curPage + 1;
+		};
+
 		
 		var test = [1,2,2,6];
 		var logData = paginationFilter(test,1);

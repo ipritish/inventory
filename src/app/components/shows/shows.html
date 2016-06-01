@@ -1,5 +1,5 @@
 <div ng-controller="showContoller" ng-init="showData()">
-	<table class="table">
+	<table class="table table-bordered">
 		<tr>
 			<th style="width:33%; text-align:center;"><span>Name</span></td>
 			<th style="width:33%; text-align:center;"><span>Age</span></td>
@@ -16,9 +16,9 @@
 		<div class="col-xs-4 text-center">
 		</div>
 		<div class="col-xs-4 text-center">
-			<button type="button" class="btn btn-primary" ng-disabled="curPage === 0" ng-click="curPage=curPage-1"> &lt; PREV</button>
+			<button type="button" class="btn btn-primary" ng-disabled="isFirstPage()" ng-click="reduceCurrentPage()"> &lt; PREV</button>
 			<span>Page {{curPage + 1}} of {{ numberOfPages() }}</span>
-			<button type="button" class="btn btn-primary" ng-disabled="curPage >= datalists.length/pageSize - 1" ng-click="curPage = curPage+1">NEXT &gt;</button>
+			<button type="button" class="btn btn-primary" ng-disabled="isLastPage()" ng-click="increaseCurrentPage()">NEXT &gt;</button>
 		</div>
 		<div class="col-xs-4 text-center">
 		</div>
