@@ -2,6 +2,22 @@ angular.module('inventory')
 .controller('showContoller', [ "$scope", 'paginationFilter', function($scope,paginationFilter) {
 	
 	var showController = this;
+	
+	$scope.data = {
+		availableOptions: [
+		  {id: '1', name: '3'},
+		  {id: '2', name: '5'},
+		  {id: '3', name: '10'}
+		],
+		selectedOption: {id: '1', name: '3'} //This sets the default value of the select in the ui
+	};
+
+	$scope.changedValue = function(item) {
+		//$scope.itemList.push(item.name);
+		$scope.pageSize = +item.name;
+		//TODO to handle when changes are made from higher to lower number
+		//$scope.numberOfPages();
+	};   
  
 	$scope.showData = function(){
 		$scope.curPage = 0;

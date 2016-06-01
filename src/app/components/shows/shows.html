@@ -1,4 +1,8 @@
 <div ng-controller="showContoller" ng-init="showData()">
+	
+	<select name="mySelect" id="mySelect" ng-options="option.name for option in data.availableOptions track by option.id" 
+		ng-change="changedValue(data.selectedOption)" ng-model="data.selectedOption">
+	</select>
 	<table class="table table-bordered">
 		<tr>
 			<th style="width:33%; text-align:center;"><span>Name</span></td>
