@@ -1,5 +1,5 @@
 angular.module('inventory')
-.controller('showContoller', [ "$scope", 'paginationFilter', function($scope,paginationFilter) {
+.controller('showContoller',["$scope",'paginationFilter',function($scope,paginationFilter) {
 	
 	var showController = this;
 	
@@ -13,15 +13,13 @@ angular.module('inventory')
 	};
 
 	$scope.changedValue = function(item) {
-		//$scope.itemList.push(item.name);
+		$scope.curPage = 0;
 		$scope.pageSize = +item.name;
-		//TODO to handle when changes are made from higher to lower number
-		//$scope.numberOfPages();
 	};   
  
 	$scope.showData = function(){
 		$scope.curPage = 0;
-		$scope.pageSize = 3;
+		$scope.pageSize = +$scope.data.selectedOption.name;
 		$scope.datalists = [
 			{ "name": "John","age":"16","designation":"Software Engineer1"},
 			{"name": "John2","age":"21","designation":"Software Engineer2"},
@@ -54,11 +52,6 @@ angular.module('inventory')
 		$scope.increaseCurrentPage = function(){
 			$scope.curPage = $scope.curPage + 1;
 		};
-
-		
-		var test = [1,2,2,6];
-		var logData = paginationFilter(test,1);
-		console.log(logData);
          
 	}
 }]);
