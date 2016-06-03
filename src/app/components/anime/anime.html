@@ -1,1 +1,44 @@
-<div>anime</div>
+<div ng-controller="animeContoller" ng-init="showData()">
+	
+	<div class="row">
+		<div class="col-xs-2">
+		</div>
+		<div class="col-xs-6">
+			<div style="white-space:nowrap">
+				<p>Anime Per Page</p>
+				<select style="width: 20%;" class="form-control" ng-options="option.name for option in data.availableOptions track by option.id" 
+					ng-change="changedValue(data.selectedOption)" ng-model="data.selectedOption">
+				</select>
+			</div>
+		</div>
+		<div class="col-xs-4 text-center">
+			<button style="display: block;" class="btn btn-default" type="submit" ng-click="home()">Home</button>
+		</div>
+	</div>
+	<div class= "row" style="margin-top:2%">
+	<table class="table table-bordered" >
+		<tr>
+			<th style="width:33%; text-align:center;"><span>Name</span></td>
+			<th style="width:33%; text-align:center;"><span>Age</span></td>
+			<th style="width:33%; text-align:center;"><span>Designation</span></td>
+		</tr>
+		<tr ng-repeat="datalist in datalists | pagination: curPage * pageSize | limitTo: pageSize">
+			<td style="width:33%; text-align:center;"><span>{{ datalist.name }} </span></td>
+			<td style="width:33%; text-align:center;"><span>{{ datalist.age }}</span></td>
+			<td style="width:33%; text-align:center;"><span>{{ datalist.designation }}</span></td> 
+		</tr>
+	</table>
+	</div>
+        
+    <div class="row" ng-show="datalists.length">
+		<div class="col-xs-4 text-center">
+		</div>
+		<div class="col-xs-4 text-center">
+			<button type="button" class="btn btn-primary" ng-disabled="isFirstPage()" ng-click="reduceCurrentPage()"> &lt; PREV</button>
+			<span>Page {{curPage + 1}} of {{ numberOfPages() }}</span>
+			<button type="button" class="btn btn-primary" ng-disabled="isLastPage()" ng-click="increaseCurrentPage()">NEXT &gt;</button>
+		</div>
+		<div class="col-xs-4 text-center">
+		</div>
+	</div>
+</div>

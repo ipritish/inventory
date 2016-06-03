@@ -1,7 +1,7 @@
 angular.module('inventory')
-.controller('showContoller',["$state","$scope",'paginationFilter',function($state,$scope,paginationFilter) {
+.controller('animeContoller',["$state","$scope",'paginationFilter',function($state,$scope,paginationFilter) {
 	
-	var showController = this;
+	var animeContoller = this;
 	
 	$scope.data = {
 		availableOptions: [
@@ -59,7 +59,5 @@ angular.module('inventory')
          
 	}
 }]);
-
-
 
  

@@ -39,3 +39,12 @@ angular.module('inventory', ['ui.router'])
 		console.log("it's here");
 	};
 }]);
+
+angular.module('inventory').filter('pagination', function()
+{
+	return function(input, start)
+	{
+		start = +start;
+		return input.slice(start);
+	};
+});
