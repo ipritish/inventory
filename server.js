@@ -56,23 +56,23 @@ app.get('/resulttest', function(req, res) {
 
 });
 
-app.use(express.static(__dirname + '/src'));
+app.use(express.static(__dirname + '/public'));
 
 app.get('/home', function(req, res) {
 
-  res.sendFile('src/index.html' , { root : __dirname});
+  res.sendFile('public/index.html' , { root : __dirname});
 
 });
 
 app.get('/shows', function(req, res) {
 
-  res.sendFile('src/index.html' , { root : __dirname});
+  res.sendFile('public/index.html' , { root : __dirname});
 
 });
 
 app.get('/anime', function(req, res) {
 
-  res.sendFile('src/index.html' , { root : __dirname});
+  res.sendFile('public/index.html' , { root : __dirname});
 
 });
 

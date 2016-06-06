@@ -19,16 +19,16 @@ var download = require('gulp-download'),
 	
 var srcs = {
     scss: [
-        'src/**/*.scss',
-        '!src/node_modules/**/*.*',
-        '!src/bower_components/**/*.*'
+        'public/**/*.scss',
+        '!public/node_modules/**/*.*',
+        '!public/bower_components/**/*.*'
     ],
     templates: [
-        'src/**/*.html',
-        '!src/index.html'
+        'public/**/*.html',
+        '!public/index.html'
     ],
     reload: [
-        'src/**/*.{html,css,js}'
+        'public/**/*.{html,css,js}'
     ]
 };
 
@@ -39,7 +39,7 @@ gulp.task('html-templates', [ 'sass'] , function() {
             filename: '.tmp/templates.js',
             module: 'inventory'
         }))
-        .pipe(gulp.dest('src', { mode: 0644 }));
+        .pipe(gulp.dest('public', { mode: 0644 }));
 });
 
 gulp.task('sass',function() {
@@ -50,28 +50,28 @@ gulp.task('sass',function() {
         .pipe(sass({outputStyle: 'compressed'}))
         .pipe(rename('css.css'))
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest('src/.tmp', { mode: 0644 }));
+        .pipe(gulp.dest('public/.tmp', { mode: 0644 }));
 });
 
 gulp.task('index', [ 'html-templates'], function() {
-    var target = gulp.src('src/index.html');
-    var src = [ 'src/**/*.js', 'src/**/*.css', 'src/.tmp/**/*',
-        '!src/node_modules/**/*', '!src/bower_components/**/*',
-        '!src/*.js', '!src/*.css', '!src/**/*-spec.js' ];
+    var target = gulp.src('public/index.html');
+    var src = [ 'public/**/*.js', 'public/**/*.css', 'public/.tmp/**/*',
+        '!public/node_modules/**/*', '!public/bower_components/**/*',
+        '!public/*.js', '!public/*.css', '!public/**/*-spec.js' ];
     var sources = gulp.src(src, { read: false });
 
     return target
         .pipe(inject(gulp.src(mainBowerFiles(),
-                { base: './src/bower_components', read: false }),
-            { ignorePath: 'src', addRootSlash: false, name: 'bower' }
+                { base: './public/bower_components', read: false }),
+            { ignorePath: 'public', addRootSlash: false, name: 'bower' }
         ))
-        .pipe(inject(sources, { ignorePath: 'src', addRootSlash: false }))
-        .pipe(gulp.dest('src', { mode: 0644, dirMode: 0755 }));
+        .pipe(inject(sources, { ignorePath: 'public', addRootSlash: false }))
+        .pipe(gulp.dest('public', { mode: 0644, dirMode: 0755 }));
 });
 
 gulp.task('dist', [ 'index' ], function() {
 
-    var src = [ 'src/app/app.js', 'src/**/.js' ];
+    var src = [ 'public/app/app.js', 'public/**/.js' ];
     return gulp.src(src)
 		.pipe(sourcemaps.init())
         .pipe(concat('inventory.js'))
@@ -112,7 +112,7 @@ gulp.task('serve', [ 'deploy' ], function() {
 
 // Restores to preinstall and prebuild state.
 gulp.task('devclean', function(cb) {
-    var src = [ 'node_modules', 'dist', '.DS_Store', '**/.DS_Store', 'npm-debug.log', 'src/bower_components' ];
+    var src = [ 'node_modules', 'dist', '.DS_Store', '**/.DS_Store', 'npm-debug.log', 'public/bower_components' ];
     del(src, { force: true }, cb)
         .then(path => {
         console.log('Cleaned:\n', path.join('\n'));
@@ -121,7 +121,7 @@ gulp.task('devclean', function(cb) {
 });
 
 gulp.task('karma-inject', function() {
-    var sources = gulp.src([ './src/app/app.js', './src/bower_components/**/*', './src/**/*.js', 'src/.tmp/**/*' ]);
+    var sources = gulp.src([ './public/app/app.js', './public/bower_components/**/*', './public/**/*.js', 'public/.tmp/**/*' ]);
 
     return gulp.src('./karma.conf.js')
         .pipe(inject(gulp.src(mainBowerFiles({
