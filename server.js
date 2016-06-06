@@ -3,44 +3,18 @@ var app = express();
 var http = require('http');
 var path = require('path');
 var server = http.createServer(app);
-
-var mysql      = require('mysql');
-var connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : 'String@1',
-  database : 'inventory'
-});
+var dbconnect = require('./services/database.js');
 
 app.get('/initshow',function(req,res){
-	
-	connection.connect();
-
-	connection.query('SELECT * from shows', function(err, rows, fields) {
-	  if (!err)
-		console.log('The solution is: ', rows);
-	  else
-		console.log('Error while performing Query.');
-	});
-
-	connection.end();
-	
+	var data = dbconnect.getAnimeRows();
+	console.log(data);
 });
 
 app.get('/initanime',function(req,res){
-	
-	connection.connect();
-
-	connection.query('SELECT * from anime', function(err, rows, fields) {
-	  if (!err)
-		console.log('The solution is: ', rows);
-	  else
-		console.log('Error while performing Query.');
-	});
-
-	connection.end();
-	
+	var data = dbconnect.getShowRows();
+	console.log(data);
 });
+
 
 
 
