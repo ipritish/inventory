@@ -1,0 +1,8 @@
+for anime
+name mal_rating season episodes is_running(non editable) air_day my_rating (edit_no_header)
+
+
+for shows
+name imdb_rating season episodes is_running(non editable) air_day my_rating (edit_no_header)
+
+edit in front of each option
