@@ -1,5 +1,5 @@
 angular.module('inventory')
-.controller('animeContoller',["$state","$scope",'paginationFilter',function($state,$scope,paginationFilter) {
+.controller('animeContoller',["$http","$state","$scope",'paginationFilter',function($http,$state,$scope,paginationFilter) {
 	
 	var animeContoller = this;
 	
@@ -11,6 +11,13 @@ angular.module('inventory')
 		],
 		selectedOption: {id: '1', name: '3'} //This sets the default value of the select in the ui
 	};
+	
+	$scope.datalists = [];
+	
+	$scope.headers = [{"title": "Name"},{"title": "Rating"},{"title": "Season"},{"title": "Episodes"},
+					  {"title": "On Air"},{"title": "Air Day"},{"title": "My Rating"}];
+	
+	$scope.test = (91/$scope.headers.length);
 
 	$scope.changedValue = function(item) {
 		$scope.curPage = 0;
@@ -24,23 +31,12 @@ angular.module('inventory')
 	$scope.showData = function(){
 		$scope.curPage = 0;
 		$scope.pageSize = +$scope.data.selectedOption.name;
-		$scope.datalists = [
-			{ "name": "John","age":"16","designation":"Software Engineer1"},
-			{"name": "John2","age":"21","designation":"Software Engineer2"},
-			{"name": "John3","age":"19","designation":"Software Engineer3"},
-			{"name": "John4","age":"17","designation":"Software Engineer4"},
-			{"name": "John5","age":"21","designation":"Software Engineer5"},
-			{"name": "John6","age":"31","designation":"Software Engineer6"},
-			{"name": "John7","age":"41","designation":"Software Engineer7"},
-			{"name": "John8","age":"16","designation":"Software Engineer8"},
-			{"name": "John18","age":"16","designation":"Software Engineer9"},
-			{"name": "John28","age":"16","designation":"Software Engineer10"},
-			{"name": "John38","age":"16","designation":"Software Engineer11"},
-			{"name": "John48","age":"16","designation":"Software Engineer12"},
-			{"name": "John58","age":"16","designation":"Software Engineer13"},
-			{"name": "John68","age":"16","designation":"Software Engineer14"},
-			{"name": "John68","age":"16","designation":"Software Engineer15"}
-		]
+		
+		$http.get("app/resources/anime/anime.json").then(function(response){
+			console.log(response.data);
+			$scope.datalists = response.data;
+		});
+		
 		$scope.numberOfPages = function() {
 				return Math.ceil($scope.datalists.length / $scope.pageSize);
 		};

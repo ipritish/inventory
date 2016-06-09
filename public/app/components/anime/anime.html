@@ -18,15 +18,19 @@
 	<div class= "row" style="margin-top:2%">
 	<table class="table table-bordered" >
 		<tr>
-			<th style="width:33%; text-align:center;"><span>Name</span></td>
-			<th style="width:33%; text-align:center;"><span>Age</span></td>
-			<th style="width:33%; text-align:center;"><span>Designation</span></td>
+			<th ng-repeat="header in headers" style="width:{{test}}%; text-align:center;"><span>{{header.title}}</span></th>
 		</tr>
 		<tr ng-repeat="datalist in datalists | pagination: curPage * pageSize | limitTo: pageSize">
-			<td style="width:33%; text-align:center;"><span>{{ datalist.name }} </span></td>
-			<td style="width:33%; text-align:center;"><span>{{ datalist.age }}</span></td>
-			<td style="width:33%; text-align:center;"><span>{{ datalist.designation }}</span></td> 
+			<td style="text-align:center;"><span>{{ datalist.name }} </span></td>
+			<td style="text-align:center;"><span>{{ datalist.age }}</span></td>
+			<td style="text-align:center;"><span>{{ datalist.designation }}</span></td> 
+			<td style="text-align:center;"><span>{{ datalist.sirname }} </span></td>
+			<td style="text-align:center;"><span>{{ datalist.period }}</span></td>
+			<td style="text-align:center;"><span>{{ datalist.company }}</span></td>
+			<td style="text-align:center;"><span>{{ datalist.type }} </span></td>
+
 		</tr>
+		
 	</table>
 	</div>
         
