@@ -6,3 +6,8 @@ for shows
 name imdb_rating season episodes is_running(non editable) air_day my_rating (edit_no_header)
 
 edit in front of each option
+
+CREATE TABLE Persons( ID int NOT NULL AUTO_INCREMENT, LastName varchar(255) NOT NULL, FirstName varchar(255), Address varchar(255), City varchar(255),PRIMARY KEY (ID))
+
+
+CREATE TABLE anime(id int NOT NULL AUTO_INCREMENT, name varchar(255) NOT NULL, rating double NOT NULL, season int NOT NULL, episodes int NOT NULL, running boolean NOT NULL, air_day varchar(255) NOT NULL, my_rating double NOT NULL, PRIMARY KEY (ID))
