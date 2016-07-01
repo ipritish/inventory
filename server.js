@@ -3,16 +3,18 @@ var app = express();
 var http = require('http');
 var path = require('path');
 var server = http.createServer(app);
-var dbconnect = require('./services/database.js');
+var dbconnect = require('./services/persistence/database.js');
 
-app.get('/initshow',function(req,res){
+app.get('/getanimes',function(req,res){
 	var data = dbconnect.getAnimeRows();
-	console.log(data);
+	//console.log(data);
+	res.send(data);
 });
 
-app.get('/initanime',function(req,res){
+app.get('/getshows',function(req,res){
 	var data = dbconnect.getShowRows();
-	console.log(data);
+	//console.log(data);
+	res.send(data);
 });
 
 

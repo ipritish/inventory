@@ -1,13 +1,13 @@
 var exports = module.exports = {};
 
 exports.getAnimeRows = function(){
-	var mysql      = require('mysql');
+	/*var mysql      = require('mysql');
 	var connection = mysql.createConnection({
 	  host     : 'localhost',
 	  user     : 'root',
-	  password : 'String@1',
+	  password : 'root',
 	  database : 'inventory'
-	});
+	});*/
 	
 	/*connection.connect();
 
@@ -19,16 +19,16 @@ exports.getAnimeRows = function(){
 	});
 
 	connection.end();*/
-	var row = {"test":"test"};
-	return row;
+	var animeData = require("./resources/anime/anime.json"); 
+	return animeData;
 };
 
 exports.getShowRows = function(){
-	var mysql      = require('mysql');
+	/*var mysql      = require('mysql');
 	var connection = mysql.createConnection({
 	  host     : 'localhost',
 	  user     : 'root',
-	  password : 'String@1',
+	  password : 'root',
 	  database : 'inventory'
 	});
 	
@@ -42,6 +42,6 @@ exports.getShowRows = function(){
 	});
 
 	connection.end();*/
-	var row = {"test":"test"};
-	return row;
+	var showData = require("./resources/show/show.json");
+	return showData;
 };

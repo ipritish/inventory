@@ -32,7 +32,7 @@ angular.module('inventory')
 		$scope.curPage = 0;
 		$scope.pageSize = +$scope.data.selectedOption.name;
 		
-		$http.get("app/resources/anime/anime.json").then(function(response){
+		$http.get("/getanimes").then(function(response){
 			console.log(response.data);
 			$scope.datalists = response.data;
 		});

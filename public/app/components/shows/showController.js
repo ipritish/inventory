@@ -30,7 +30,7 @@ angular.module('inventory')
 	$scope.showData = function(){
 		$scope.curPage = 0;
 		$scope.pageSize = +$scope.data.selectedOption.name;
-		$http.get("app/resources/show/show.json").then(function(response){
+		$http.get("/getshows").then(function(response){
 			console.log(response.data);
 			$scope.datalists = response.data;
 		});
