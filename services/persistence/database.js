@@ -1,5 +1,9 @@
 var exports = module.exports = {};
 
+var SecureConf = require('secure-conf');
+var sconf      = new SecureConf();
+var ef         = "./enc_conf.json";
+
 exports.getAnimeRows = function(){
 	/*var mysql      = require('mysql');
 	var connection = mysql.createConnection({
@@ -19,6 +23,17 @@ exports.getAnimeRows = function(){
 	});
 
 	connection.end();*/
+	/*sconf.decryptFile(ef, function(err, file, content) {
+		if (err) 
+		{
+			console.log('Unable to retrieve the configuration contents.');
+		} 
+		else 
+		{
+			var config = JSON.parse(content);
+			console.log(config);
+		}
+	});*/
 	var animeData = require("./resources/anime/anime.json"); 
 	return animeData;
 };

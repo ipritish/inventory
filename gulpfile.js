@@ -98,6 +98,8 @@ gulp.task('deploy', [ 'dist' ], function() {
 });
 
 gulp.task('serve', [ 'deploy' ], function() {
+	
+	//process.stdin.isTTY = true;
 
 	browserSync.init(null, {
 		proxy: "http://localhost:3000",
