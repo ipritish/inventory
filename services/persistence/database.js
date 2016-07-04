@@ -1,9 +1,5 @@
 var exports = module.exports = {};
 
-var SecureConf = require('secure-conf');
-var sconf      = new SecureConf();
-var ef         = "./enc_conf.json";
-
 exports.getAnimeRows = function(){
 	/*var mysql      = require('mysql');
 	var connection = mysql.createConnection({
