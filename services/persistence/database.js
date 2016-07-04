@@ -1,6 +1,6 @@
 var exports = module.exports = {};
 
-exports.getAnimeRows = function(){
+exports.getAnimeRows = function(password){
 	/*var mysql      = require('mysql');
 	var connection = mysql.createConnection({
 	  host     : 'localhost',
@@ -19,22 +19,24 @@ exports.getAnimeRows = function(){
 	});
 
 	connection.end();*/
-	/*sconf.decryptFile(ef, function(err, file, content) {
-		if (err) 
-		{
+	var EncyptionServices = require('../encryption/Encryption.js');
+	var econfs      = new EncyptionServices();
+	var ef         = "./services/persistence/enc_conf.json";
+
+ 
+	econfs.decryptFile(password, ef, function(err, file, content) {
+		if (err) {
 			console.log('Unable to retrieve the configuration contents.');
-		} 
-		else 
-		{
+		} else {
 			var config = JSON.parse(content);
 			console.log(config);
 		}
-	});*/
+	});
 	var animeData = require("./resources/anime/anime.json"); 
 	return animeData;
 };
 
-exports.getShowRows = function(){
+exports.getShowRows = function(password){
 	/*var mysql      = require('mysql');
 	var connection = mysql.createConnection({
 	  host     : 'localhost',
@@ -53,6 +55,20 @@ exports.getShowRows = function(){
 	});
 
 	connection.end();*/
+	var EncyptionServices = require('../encryption/Encryption.js');
+	var econfs      = new EncyptionServices();
+	var ef         = "./services/persistence/enc_conf.json";
+
+ 
+	econfs.decryptFile(password, ef, function(err, file, content) {
+		if (err) {
+			console.log('Unable to retrieve the configuration contents.');
+		} else {
+			var config = JSON.parse(content);
+			console.log(config);
+		}
+	});
+	
 	var showData = require("./resources/show/show.json");
 	return showData;
 };

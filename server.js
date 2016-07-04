@@ -4,15 +4,16 @@ var http = require('http');
 var path = require('path');
 var server = http.createServer(app);
 var dbconnect = require('./services/persistence/database.js');
+var argv = require('yargs').argv;
 
 app.get('/getanimes',function(req,res){
-	var data = dbconnect.getAnimeRows();
+	var data = dbconnect.getAnimeRows(process.env.PASS);
 	//console.log(data);
 	res.send(data);
 });
 
 app.get('/getshows',function(req,res){
-	var data = dbconnect.getShowRows();
+	var data = dbconnect.getShowRows(process.env.PASS);
 	//console.log(data);
 	res.send(data);
 });

@@ -15,7 +15,9 @@ var download = require('gulp-download'),
     uglify = require('gulp-uglify'),
 	browserSync = require('browser-sync').create(),
 	nodemon = require('gulp-nodemon'),	
-    watch = require('gulp-watch');
+    watch = require('gulp-watch'),
+	argv = require('yargs').argv;
+	
 	
 var srcs = {
     scss: [
@@ -88,7 +90,8 @@ gulp.task('deploy', [ 'dist' ], function() {
 
     var started = false;
 	return nodemon({
-		script: 'server.js'
+		script: 'server.js',
+		env: {'PASS' : argv.pw}
 	}).on('start', function () {
 		if (!started) {
 			cb();
