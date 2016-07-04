@@ -1,7 +1,7 @@
-var SecureConf = require('secure-conf');
-var sconf      = new SecureConf();
+var EncyptionServices = require('./services/encryption/Encryption.js');
+var econfs      = new EncyptionServices();
  
-sconf.encryptFile(
+econfs.encryptFile(
     "./services/persistence/conf.json",
     "./services/persistence/enc_conf.json",
     function(err, f, ef, ec) {
