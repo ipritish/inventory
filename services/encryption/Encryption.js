@@ -34,17 +34,17 @@ Encryption.prototype.decryptContent = function(content, pass) {
     } catch(ex) {}
     return decrypted;
 };
-Encryption.prototype.decryptFile = function(file, callback) {
+Encryption.prototype.decryptFile = function(password,file, callback) {
     var self = this, dec;
-    process.stdout.write(self.options.prompt);
-    this.pw(function (password) {
+    //process.stdout.write(self.options.prompt);
+    //this.pw(function (password) {
         dec = self.decryptContent(self.fs.readFileSync(file, { encoding : self.options.file.encoding }),password);
         if (dec === undefined) {
             callback('Decryption Failed', file);
         } else {
             callback(null, file, dec);
         }
-    });
+    //});
 };
 Encryption.prototype.encryptFile = function(file, encfile, callback) {
     var self = this, enc;
