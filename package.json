@@ -1,0 +1,43 @@
+{
+  "name": "inventory",
+  "version": "1.0.0",
+  "description": "list of items",
+  "main": "index.js",
+  "scripts": {
+    "gulp": "gulp",
+    "karma": "karma start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ipritish/inventory.git"
+  },
+  "author": "pritish",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ipritish/inventory/issues"
+  },
+  "homepage": "https://github.com/ipritish/inventory#readme",
+  "devDependencies": {
+    "browser-sync": "^2.12.8",
+    "del": "^2.2.0",
+    "express": "^4.13.4",
+    "gulp": "^3.9.1",
+    "gulp-angular-templatecache": "^1.8.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-download": "0.0.1",
+    "gulp-inject": "^4.1.0",
+    "gulp-nodemon": "^2.0.7",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-strip-comments": "^2.4.3",
+    "gulp-uglify": "^1.5.3",
+    "gulp-watch": "^4.3.6",
+    "karma": "^0.13.22",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-jasmine": "^1.0.2",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "main-bower-files": "^2.13.1",
+    "mysql": "^2.10.2"
+  }
+}
