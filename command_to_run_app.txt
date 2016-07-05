@@ -1,1 +1,5 @@
+// db init
+mysql -u username -p < path-to\scriptName.sql
+
+//app run
 npm run gulp serve -- --pw=pass

@@ -1,0 +1,6 @@
+DROP DATABASE IF EXISTS inventory;
+FLUSH PRIVILEGES;
+SHOW DATABASES;
+CREATE DATABASE inventory;
+USE inventory;
+SHOW tables;
