@@ -5,7 +5,7 @@
 		</div>
 		<div class="col-xs-4 text-center" style="overflow: hidden;">
 			<p>Show Per Page</p>
-			<select ng-options="option.name for option in data.availableOptions track by option.id" ng-change="changedValue(data.selectedOption)"
+			<select class="chosen-container" ng-options="option.name for option in data.availableOptions track by option.id" ng-change="changedValue(data.selectedOption)"
 					ng-model="data.selectedOption">
 			</select>
 		</div>
@@ -35,7 +35,7 @@
 
 				</tr>
 			</table>
-		</div>>
+		</div>
 
 		<div class="col-xs-1"></div>
 	</div>
