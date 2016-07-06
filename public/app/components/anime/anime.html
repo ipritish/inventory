@@ -1,37 +1,45 @@
 <div ng-controller="animeContoller" ng-init="showData()">
 	
 	<div class="row">
-		<div class="col-xs-2">
+		<div class="col-xs-1">
 		</div>
-		<div class="col-xs-6">
-			<div style="white-space:nowrap">
-				<p>Anime Per Page</p>
-				<select style="width: 20%;" class="form-control" ng-options="option.name for option in data.availableOptions track by option.id" 
+		<div class="col-xs-4 text-center" style="overflow: hidden;">
+			<p>Anime Per Page</p>
+			<select ng-options="option.name for option in data.availableOptions track by option.id"
 					ng-change="changedValue(data.selectedOption)" ng-model="data.selectedOption">
-				</select>
-			</div>
+			</select>
 		</div>
 		<div class="col-xs-4 text-center">
+			<button style="display: block;" class="btn btn-default" type="submit">Add New Entry</button>
+		</div>
+		<div class="col-xs-3 text-center">
 			<button style="display: block;" class="btn btn-default" type="submit" ng-click="home()">Home</button>
 		</div>
 	</div>
 	<div class= "row" style="margin-top:2%">
-	<table class="table table-bordered" >
-		<tr>
-			<th ng-repeat="header in headers" style="width:{{test}}%; text-align:center;"><span>{{header.title}}</span></th>
-		</tr>
-		<tr ng-repeat="datalist in datalists | pagination: curPage * pageSize | limitTo: pageSize">
-			<td style="text-align:center;"><span>{{ datalist.name }} </span></td>
-			<td style="text-align:center;"><span>{{ datalist.rating }}</span></td>
-			<td style="text-align:center;"><span>{{ datalist.season }}</span></td> 
-			<td style="text-align:center;"><span>{{ datalist.episodes }} </span></td>
-			<td style="text-align:center;"><span>{{ datalist.onair }}</span></td>
-			<td style="text-align:center;"><span>{{ datalist.day }}</span></td>
-			<td style="text-align:center;"><span>{{ datalist.m_rating }} </span></td>
+		<div class="col-xs-1">
+		</div>
 
-		</tr>
-		
-	</table>
+		<div class="col-lg-10">
+			<table class="table table-bordered" >
+				<tr>
+					<th ng-repeat="header in headers" style="width:{{test}}%; text-align:center;"><span>{{header.title}}</span></th>
+				</tr>
+				<tr ng-repeat="datalist in datalists | pagination: curPage * pageSize | limitTo: pageSize">
+					<td style="text-align:center;"><span>{{ datalist.name }} </span></td>
+					<td style="text-align:center;"><span>{{ datalist.rating }}</span></td>
+					<td style="text-align:center;"><span>{{ datalist.season }}</span></td>
+					<td style="text-align:center;"><span>{{ datalist.episodes }} </span></td>
+					<td style="text-align:center;"><span>{{ datalist.onair }}</span></td>
+					<td style="text-align:center;"><span>{{ datalist.day }}</span></td>
+					<td style="text-align:center;"><span>{{ datalist.m_rating }} </span></td>
+
+				</tr>
+
+			</table>
+		</div>
+
+		<div class="col-xs-1"></div>
 	</div>
         
     <div class="row" ng-show="datalists.length">
