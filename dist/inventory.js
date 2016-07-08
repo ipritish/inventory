@@ -20,22 +20,22 @@ angular.module('inventory', ['ui.router'])
       url: "/anime",
       templateUrl: "app/components/anime/anime.html"
     })
-		.state('addAnime', {
-			url: "/anime/add",
-			templateUrl: "app/components/anime/addAnime.html"
-		})
-		.state('editAnime', {
-			url: "/anime/edit",
-			templateUrl: "app/components/anime/editAnime.html"
-		})
-		.state('addShow', {
-			url: "/show/add",
-			templateUrl: "app/components/shows/addShow.html"
-		})
-		.state('editShow', {
-			url: "/show/edit",
-			templateUrl: "app/components/shows/editShow.html"
-		});
+	.state('addAnime', {
+		url: "/addAnime",
+		templateUrl: "app/components/anime/addAnime.html"
+	})
+	.state('editAnime', {
+		url: "/editAnime",
+		templateUrl: "app/components/anime/editAnime.html"
+	})
+	.state('addShow', {
+		url: "/addShow",
+		templateUrl: "app/components/shows/addShow.html"
+	})
+	.state('editShow', {
+		url: "/editShow",
+		templateUrl: "app/components/shows/editShow.html"
+	});
     
 }])
 .controller('mainController',["$scope", "$http", function($scope,$http){

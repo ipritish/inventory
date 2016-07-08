@@ -4,4 +4,12 @@ angular.module('inventory')
 
 	var addAnimeContoller = this;
 
+	$scope.addAnime = function(){
+		$state.go("anime");
+	};
+
+	$scope.cancel = function(){
+		$state.go("anime");
+	};
+
 }]);

@@ -3,6 +3,14 @@ angular.module('inventory')
 {
 	
 	var addShowContoller = this;
+
+	$scope.addShow = function(){
+		$state.go("shows");
+	};
+
+	$scope.cancel = function(){
+		$state.go("shows");
+	};
 	
 	
 }]);

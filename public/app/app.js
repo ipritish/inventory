@@ -21,19 +21,19 @@ angular.module('inventory', ['ui.router'])
       templateUrl: "app/components/anime/anime.html"
     })
 	.state('addAnime', {
-		url: "/anime/add",
+		url: "/addAnime",
 		templateUrl: "app/components/anime/addAnime.html"
 	})
 	.state('editAnime', {
-		url: "/anime/edit",
+		url: "/editAnime",
 		templateUrl: "app/components/anime/editAnime.html"
 	})
 	.state('addShow', {
-		url: "/show/add",
+		url: "/addShow",
 		templateUrl: "app/components/shows/addShow.html"
 	})
 	.state('editShow', {
-		url: "/show/edit",
+		url: "/editShow",
 		templateUrl: "app/components/shows/editShow.html"
 	});
     
