@@ -1,19 +1,16 @@
 <div ng-controller="addAnimeContoller">
 	
-	<div class="row">
+	<div class="row" style="margin-top:3%">
 		<div class="col-xs-1">
 		</div>
-		<div class="col-xs-4 text-center" style="overflow: hidden;">
-			<p>Anime Per Page</p>
+		<div class="col-xs-5 text-center">
+			<input ng-model="name" class="form-control" type="text" name="name">
 		</div>
-		<div class="col-xs-4 text-center">
-			<button style="display: block;" class="btn btn-default" type="submit">Add New Entry</button>
+		<div class="col-xs-5 text-center">
+			<input ng-model="rating" class="form-control" type="text" name="name">
 		</div>
-		<div class="col-xs-3 text-center">
-			<button style="display: block;" class="btn btn-default" type="submit" ng-click="home()">Home</button>
+		<div class="col-xs-1">
 		</div>
 	</div>
-	
-        
-    
+ 
 </div>

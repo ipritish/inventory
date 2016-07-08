@@ -1,8 +1,9 @@
 angular.module('inventory')
-.controller('animeContoller',["$http","$state","$scope",'paginationFilter',function($http,$state,$scope,paginationFilter) {
-	
+.controller('animeContoller',["$http","$state","$scope",'paginationFilter',function($http,$state,$scope,paginationFilter)
+{
+
 	var animeContoller = this;
-	
+
 	$scope.data = {
 		availableOptions: [
 		  {id: '1', name: '3'},
@@ -11,32 +12,37 @@ angular.module('inventory')
 		],
 		selectedOption: {id: '1', name: '3'} //This sets the default value of the select in the ui
 	};
-	
+
 	$scope.datalists = [];
-	
+
 	$scope.headers = [{"title": "Name"},{"title": "Rating"},{"title": "Season"},{"title": "Episodes"},
 					  {"title": "On Air"},{"title": "Air Day"},{"title": "My Rating"}];
-	
+
 	$scope.test = (91/$scope.headers.length);
 
 	$scope.changedValue = function(item) {
 		$scope.curPage = 0;
 		$scope.pageSize = +item.name;
-	}; 
-	
+	};
+
+
 	$scope.home = function(){
 		$state.go("home");
 	};
- 
+
+	$scope.addNewAnime = function(){
+		$state.go("addAnime");
+	};
+
 	$scope.showData = function(){
 		$scope.curPage = 0;
 		$scope.pageSize = +$scope.data.selectedOption.name;
-		
+
 		$http.get("/getanimes").then(function(response){
 			console.log(response.data);
 			$scope.datalists = response.data;
 		});
-		
+
 		$scope.numberOfPages = function() {
 				return Math.ceil($scope.datalists.length / $scope.pageSize);
 		};
@@ -52,8 +58,7 @@ angular.module('inventory')
 		$scope.increaseCurrentPage = function(){
 			$scope.curPage = $scope.curPage + 1;
 		};
-         
+
 	}
 }]);
 
- 
