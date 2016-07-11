@@ -1,5 +1,8 @@
 // db init
 mysql -u username -p < path-to\scriptName.sql
 
+//run encrypt with following
+node encrypt.js <dbhost> <user> <password> <dbname>
+
 //app run
 npm run gulp serve -- --pw=pass
