@@ -62,17 +62,7 @@ app.get('/addShow', function(req, res) {
   res.sendFile('public/index.html' , { root : __dirname});
 
 });
-app.get('/editAnime', function(req, res) {
 
-  res.sendFile('public/index.html' , { root : __dirname});
-
-});
-
-app.get('/editShow', function(req, res) {
-
-  res.sendFile('public/index.html' , { root : __dirname});
-
-});
 
 app.listen(3000, function() {
   console.log('Express server started on port');

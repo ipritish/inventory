@@ -16,13 +16,18 @@ angular.module('inventory')
 	$scope.datalists = [];
 
 	$scope.headers = [{"title": "Name"},{"title": "Rating"},{"title": "Season"},{"title": "Episodes"},
-					  {"title": "On Air"},{"title": "Air Day"},{"title": "My Rating"}];
+					  {"title": "On Air"},{"title": "Air Day"},{"title": "My Rating"},{title:""}];
 
-	$scope.test = (91/$scope.headers.length);
+	$scope.test = (96/$scope.headers.length);
 
 	$scope.changedValue = function(item) {
 		$scope.curPage = 0;
 		$scope.pageSize = +item.name;
+	};
+
+	$scope.editEntry = function(datalist){
+		//alert(datalist.name);
+		console.log(datalist.name);
 	};
 
 

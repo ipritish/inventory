@@ -24,17 +24,9 @@ angular.module('inventory', ['ui.router'])
 		url: "/addAnime",
 		templateUrl: "app/components/anime/addAnime.html"
 	})
-	.state('editAnime', {
-		url: "/editAnime",
-		templateUrl: "app/components/anime/editAnime.html"
-	})
 	.state('addShow', {
 		url: "/addShow",
 		templateUrl: "app/components/shows/addShow.html"
-	})
-	.state('editShow', {
-		url: "/editShow",
-		templateUrl: "app/components/shows/editShow.html"
 	});
     
 }])
