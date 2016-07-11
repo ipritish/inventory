@@ -59,6 +59,21 @@ Encryption.prototype.encryptFile = function(file, encfile, callback) {
         }
     });
 };
+
+Encryption.prototype.encryptString = function(content, encfile, callback) {
+    var self = this, enc;
+    process.stdout.write(self.options.prompt);
+    this.pw(function (password) {
+        enc = self.encryptContent(content, password);
+        if (enc === undefined) {
+            callback('Encryption Failed', content, encfile, enc);
+        } else {
+            self.fs.writeFileSync(encfile, enc);
+            callback(null, content, encfile, enc);
+        }
+    });
+};
+
 Encryption.prototype.getCiphers = function() {
     return this.crypto.getCiphers();
 }
