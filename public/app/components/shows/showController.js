@@ -36,6 +36,8 @@ angular.module('inventory')
 			$state.go("addShow");
 		};
 
+		$scope.editSaveSymbol = '\u270D';
+
 		$scope.showData = function(){
 			$scope.curPage = 0;
 			$scope.pageSize = +$scope.data.selectedOption.name;

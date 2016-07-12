@@ -1,24 +1,8 @@
 var exports = module.exports = {};
 
-exports.getAnimeRows = function(password){
-	/*var mysql      = require('mysql');
-	var connection = mysql.createConnection({
-	  host     : 'localhost',
-	  user     : 'root',
-	  password : 'root',
-	  database : 'inventory'
-	});*/
-	
-	/*connection.connect();
-
-	connection.query('SELECT * from shows', function(err, rows, fields) {
-	  if (!err)
-		console.log('The solution is: ', rows);
-	  else
-		console.log('Error while performing Query.');
-	});
-
-	connection.end();*/
+exports.getAnimeRows = function(password,cb){
+	var mysql      = require('mysql');
+	var connectionParams = {};
 	var EncyptionServices = require('../encryption/Encryption.js');
 	var econfs      = new EncyptionServices();
 	var ef         = "./services/persistence/enc_conf.json";
@@ -29,46 +13,54 @@ exports.getAnimeRows = function(password){
 			console.log('Unable to retrieve the configuration contents.');
 		} else {
 			var config = JSON.parse(content);
-			console.log(config);
+			connectionParams = config;
+			var connection = mysql.createConnection(connectionParams);
+			connection.connect();
+
+			connection.query('SELECT * from animes', function(err, rows, fields) {
+				if (!err){
+					//console.log('The solution is: ', rows);
+					cb(JSON.stringify(rows));
+				}
+				else {
+					console.log('Error while performing Query.');
+					cb(require("./resources/anime/anime.json"));
+				}
+			});
+
+			connection.end();
 		}
 	});
-	var animeData = require("./resources/anime/anime.json"); 
-	return animeData;
 };
 
-exports.getShowRows = function(password){
-	/*var mysql      = require('mysql');
-	var connection = mysql.createConnection({
-	  host     : 'localhost',
-	  user     : 'root',
-	  password : 'root',
-	  database : 'inventory'
-	});
-	
-	/*connection.connect();
+exports.getShowRows = function(password,cb){
 
-	connection.query('SELECT * from shows', function(err, rows, fields) {
-	  if (!err)
-		console.log('The solution is: ', rows);
-	  else
-		console.log('Error while performing Query.');
-	});
-
-	connection.end();*/
+	var mysql      = require('mysql');
+	var connectionParams = {};
 	var EncyptionServices = require('../encryption/Encryption.js');
 	var econfs      = new EncyptionServices();
 	var ef         = "./services/persistence/enc_conf.json";
 
- 
 	econfs.decryptFile(password, ef, function(err, file, content) {
 		if (err) {
 			console.log('Unable to retrieve the configuration contents.');
 		} else {
 			var config = JSON.parse(content);
-			console.log(config);
+			connectionParams = config;
+			var connection = mysql.createConnection(connectionParams);
+			connection.connect();
+
+			connection.query('SELECT * from shows', function(err, rows, fields) {
+				if (!err) {
+						cb(JSON.stringify(rows));
+					}
+				else {
+					console.log('Error while performing Query.');
+					cb(require("./resources/show/show.json"));
+				}
+			});
+
+			connection.end();
 		}
 	});
-	
-	var showData = require("./resources/show/show.json");
-	return showData;
 };

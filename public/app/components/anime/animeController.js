@@ -30,6 +30,8 @@ angular.module('inventory')
 		console.log(datalist.name);
 	};
 
+	$scope.editSaveSymbol = '\u270D';
+
 
 	$scope.home = function(){
 		$state.go("home");
