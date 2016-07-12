@@ -11,7 +11,6 @@ app.get('/getanimes',function(req,res){
   dbconnect.getAnimeRows(process.env.PASS,function(sdata)
   {
     data = sdata;
-    console.log(data);
     res.send(data);
   });
 });
@@ -21,7 +20,6 @@ app.get('/getshows',function(req,res){
 	dbconnect.getShowRows(process.env.PASS,function(sdata)
     {
       data = sdata;
-      console.log(data);
       res.send(data);
     });
 	//console.log(data);
