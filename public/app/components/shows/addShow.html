@@ -1,12 +1,18 @@
 <div ng-controller="addShowContoller">
 
+	<h3 class="row page-header">
+		<p class="text-center" ng-bind="title"></p>
+	</h3>
+
 	<div class="row" style="margin-top:3%">
 		<div class="col-xs-1">
 		</div>
 		<div class="col-xs-5 text-center">
+			<label ng-bind="namelabel"></label>
 			<input ng-model="name" class="form-control" type="text">
 		</div>
 		<div class="col-xs-5 text-center">
+			<label ng-bind="ratinglabel"></label>
 			<input ng-model="rating" class="form-control" type="text">
 		</div>
 		<div class="col-xs-1">
@@ -17,9 +23,11 @@
 		<div class="col-xs-1">
 		</div>
 		<div class="col-xs-5 text-center">
+			<label ng-bind="seasonlabel"></label>
 			<input ng-model="season" class="form-control" type="text">
 		</div>
 		<div class="col-xs-5 text-center">
+			<label ng-bind="episodeslabel"></label>
 			<input ng-model="episodes" class="form-control" type="text">
 		</div>
 		<div class="col-xs-1">
@@ -30,9 +38,11 @@
 		<div class="col-xs-1">
 		</div>
 		<div class="col-xs-5 text-center">
+			<label ng-bind="air_daylabel"></label>
 			<input ng-model="air_day" class="form-control" type="text">
 		</div>
 		<div class="col-xs-5 text-center">
+			<label ng-bind="my_ratinglabel"></label>
 			<input ng-model="my_rating" class="form-control" type="text">
 		</div>
 		<div class="col-xs-1">

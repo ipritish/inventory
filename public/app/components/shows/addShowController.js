@@ -4,6 +4,20 @@ angular.module('inventory')
 	
 	var addShowContoller = this;
 
+	$scope.title = "Add Entry";
+
+	$scope.namelabel = "Show Name";
+
+	$scope.ratinglabel = "IMDB Rating";
+
+	$scope.seasonlabel = "No. of seasons";
+
+	$scope.episodeslabel = "No. of Episodes";
+
+	$scope.air_daylabel = "Air Day";
+
+	$scope.my_ratinglabel = "My Rating";
+
 	$scope.addShow = function(){
 		$state.go("shows");
 	};
