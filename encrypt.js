@@ -12,9 +12,12 @@ if (process.argv.length === 6){
 	configuration.database = process.argv[5];
 	var config = JSON.stringify(configuration);
 	console.log(config);
+
+	var enc_conf_file = "./services/persistence/enc_conf.json";
+	//var test_enc_file = "test_enc_conf.json";
 	
 	econfs.encryptString(
-    config, "./services/persistence/enc_conf.json",
+    config, enc_conf_file,
 		function(err, f, ef, ec) {
 			if (err) {
 				consoel.log("failed to encrypt %s, error is %s", f, err);

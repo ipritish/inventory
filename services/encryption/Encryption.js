@@ -12,7 +12,7 @@ var Encryption = function(options) {
     this.options.algo   = options.algo   ? options.algo   : this.options.algo;
     this.options.file.encoding = options.file_encoding ? options.file_encoding : this.options.file.encoding;
     this.options.file.out_text = options.file_out_text ? options.file_out_text : this.options.file.out_text;
-    this.pw = require('pw');
+    this.pw = require('./Password.js');
     this.fs = require('fs');
     this.crypto = require('crypto');
 };
