@@ -18,6 +18,8 @@ angular.module('inventory')
 
 	$scope.my_ratinglabel = "My Rating";
 
+	$scope.is_runninglabel = "On Air";
+
 	$scope.addAnime = function(){
 		$state.go("anime");
 	};
