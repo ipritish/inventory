@@ -6,3 +6,6 @@ node encrypt.js <dbhost> <user> <password> <dbname>
 
 //app run
 npm run gulp serve -- --pw=pass
+
+
+node db_entry_test.js <pass>

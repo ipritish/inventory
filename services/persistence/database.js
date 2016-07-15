@@ -64,3 +64,59 @@ exports.getShowRows = function(password,cb){
 		}
 	});
 };
+
+exports.addShowRows = function(password, data){
+
+	var mysql      = require('mysql');
+	var connectionParams = {};
+	var EncyptionServices = require('../encryption/Encryption.js');
+	var econfs      = new EncyptionServices();
+	var ef         = "./services/persistence/enc_conf.json";
+
+	econfs.decryptFile(password, ef, function(err, file, content) {
+		if (err) {
+			console.log('Unable to retrieve the configuration contents.');
+		} else {
+			var config = JSON.parse(content);
+			connectionParams = config;
+			var connection = mysql.createConnection(connectionParams);
+			connection.connect();
+
+			//var post = {};
+			connection.query('INSERT INTO shows SET ?', data, function(err, result) {
+				// check via node example
+			});
+
+			connection.end();
+		}
+	});
+
+};
+
+exports.addAnimeRows = function(password, data){
+
+	var mysql      = require('mysql');
+	var connectionParams = {};
+	var EncyptionServices = require('../encryption/Encryption.js');
+	var econfs      = new EncyptionServices();
+	var ef         = "./services/persistence/enc_conf.json";
+
+	econfs.decryptFile(password, ef, function(err, file, content) {
+		if (err) {
+			console.log('Unable to retrieve the configuration contents.');
+		} else {
+			var config = JSON.parse(content);
+			connectionParams = config;
+			var connection = mysql.createConnection(connectionParams);
+			connection.connect();
+
+			//var post = {};
+			connection.query('INSERT INTO animes SET ?', data, function(err, result) {
+				// check via node example
+			});
+
+			connection.end();
+		}
+	});
+
+};
