@@ -21,6 +21,14 @@ angular.module('inventory')
 	$scope.is_runninglabel = "On Air";
 
 	$scope.addAnime = function(){
+		var data = {};
+		data.name = $scope.name;
+		data.air_day = $scope.air_day;
+		//$state.go("anime");
+		/*$http.post("/addanime",data).then(function(response){
+			console.log(response.data);
+			$scope.datalists = response.data;
+		});*/
 		$state.go("anime");
 	};
 
