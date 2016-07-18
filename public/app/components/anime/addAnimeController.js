@@ -25,12 +25,16 @@ angular.module('inventory')
 	$scope.addAnime = function(){
 		var data = {};
 
+		function correctNonPrintable(val){
+			return val;
+		};
+
 		if ($scope.name !== undefined && $scope.air_day !== undefined && $scope.season !== undefined && $scope.episodes !== undefined
 		    && $scope.rating !== undefined && $scope.my_rating !== undefined)
 		{
 			var data = {};
-			data.name = $scope.name;
-			data.rating = $scope.rating;
+			data.name = correctNonPrintable($scope.name);
+			data.rating = correctNonPrintable($scope.rating);
 			data.season = $scope.season;
 			data.episodes = $scope.episodes;
 			data.running = $scope.running;
