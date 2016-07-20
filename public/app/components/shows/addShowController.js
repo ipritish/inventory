@@ -26,6 +26,14 @@ angular.module('inventory')
 		return val;
 	}
 
+	function isInt(n){
+		return n === +n && n === (n|0);
+	}
+
+	function isFloat(n){
+		return n === +n && n !== (n|0);
+	}
+
 
 	function checkDataIntegrity(rating,season,episodes,my_rating){
 		return (!isNaN(rating) && !isNaN(season) && !isNaN(episodes) && !isNaN(my_rating));
@@ -37,18 +45,39 @@ angular.module('inventory')
 			&& $scope.rating !== undefined && $scope.my_rating !== undefined)
 		{
 			if (checkDataIntegrity($scope.rating,$scope.season,$scope.episodes,$scope.my_rating)) {
-				var data = {};
-				data.name = correctNonPrintable($scope.name);
-				data.rating = +$scope.rating;
-				data.season = +$scope.season;
-				data.episodes = +$scope.episodes;
-				data.running = $scope.running;
-				data.air_day = correctNonPrintable($scope.air_day);
-				data.my_rating = +$scope.my_rating;
-				console.log(data);
+				if (isInt(+$scope.season)&&isInt(+$scope.episodes)) {
+					var data = {};
+					data.name = correctNonPrintable($scope.name);
+					data.rating = +$scope.rating;
+					data.season = +$scope.season;
+					data.episodes = +$scope.episodes;
+					data.running = $scope.running;
+					data.air_day = correctNonPrintable($scope.air_day);
+					data.my_rating = +$scope.my_rating;
+					console.log(data);
+				}
+				else{
+					if (!isInt(+$scope.season)){
+						console.log("Season should be Integer");
+					}
+					else{
+						console.log("Episodes should be Integer");
+					}
+				}
 			}
 			else{
-				console.log("Entries not valid");
+				if (isNaN($scope.rating)){
+						console.log("Rating is not a Number");
+				}
+				else if (isNaN($scope.season)){
+					console.log("Season is no a Number");
+				}
+				else if (isNaN($scope.episodes)){
+					console.log("Episodes is not a Number");
+				}
+				else {
+					console.log("My Rating is no a number");
+				}
 			}
 		}
 		else
