@@ -7,7 +7,7 @@
     after installing nodejs install bower by following file "npm install -g bower"
     
 #run app
-	Go to project root app
+	Go to project root directory
 	
     create database with default entry using following command
     mysql -u root -p < dbinit.sql (will prompt for root password) (dbinit is present in project root folder)
